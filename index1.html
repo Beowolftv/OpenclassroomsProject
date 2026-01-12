@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Mon API Test</title>
+   <link rel="stylesheet" type="text/css" href="styles.css">
+   <!-- Responsive mobile -->
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+   <h1>Un super titre</h1>
+   
+   <!-- API GitHub -->
+   <div id="github">Chargement...</div>
+   
+   <script>
+      fetch('https://api.github.com/users/octocat')
+         .then(r=>r.json())
+         .then(data=>{
+            document.getElementById('github').innerHTML=
+            `<img src="${data.avatar_url}" width=100>
+             <h2>${data.login}</h2>`;
+         });
+   </script>
+</body>
+</html>
